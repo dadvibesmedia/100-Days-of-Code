@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #151515;
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    padding: 5px;
+    color: #fff;
+}
+
+/* ======================== */
+
+#checkbox {
+    display: none;
+}
+.toggler{
+    display: block;
+    width: 60px;
+    height: 31px;
+    border: 2px solid #1ce626;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    animation: pulsate 20s
+    ease-in-out;
+    
+}
+@keyframes pulsate {
+    /* 
+        Here we have two shadows. You can add as many as you want by using different offset values as long as you separate it with a comma.
+        The values are as follow: offset-x | offset-y | blur-radius | color
+    */
+    0%{
+        box-shadow: 
+        0 0 25px #1ce626,
+        0 0 50px #18171b;
+    }
+}
+
+.ball,
+.sun,
+.moon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.ball {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #00d957;
+    border-radius: 50%;
+    left: 1px;
+    z-index: 10;
+    transition: transform 
+    .5s ease-in-out;
+}
+
+.sun {
+    left: 5px;
+    color: gold;
+}
+.moon {
+    right: 5px;
+    color: aqua;
+}
+#checkbox:checked + .ball {
+    transform: 
+    translate(29px, -50%);
+}
